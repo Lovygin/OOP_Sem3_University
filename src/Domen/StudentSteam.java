@@ -43,7 +43,7 @@ public class StudentSteam implements Iterable<StudentGroup>, Comparable<StudentG
                 "Number of groups on the steam = " + steam.size());
         for (int i = 0; i < steam.size(); i++) {
             for (Student student : steam.get(i)) {
-                System.out.println("group id: " + ((int)steam.get(i).getIdStudentGroup() + (int)numOfSteam) + "; "
+                System.out.println("group id: " + ((int) steam.get(i).getIdStudentGroup() + (int) numOfSteam) + "; " // Правильно будет работать если количество групп не превышает 99
                         + student);
 
             }
@@ -54,7 +54,7 @@ public class StudentSteam implements Iterable<StudentGroup>, Comparable<StudentG
 
     @Override
     public Iterator<StudentGroup> iterator() {
-        return null;
+        return new GroupIterator(steam);
     }
 
     @Override

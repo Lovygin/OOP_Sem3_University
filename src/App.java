@@ -73,6 +73,8 @@ public class App {
         studentsTwo.add(student22);
 
         StudentGroup sG102 = new StudentGroup(studentsTwo);
+        System.out.println(sG102.toString());
+        System.out.println("==".repeat(30));
 
         List<Student> studentsThree = new ArrayList<>();
         Student student01 = new Student("Alla", 27);
@@ -109,13 +111,6 @@ public class App {
         studentsFour.add(student36);
         StudentGroup sG104 = new StudentGroup(studentsFour);
 
-
-        System.out.println(sG102.toString());
-        System.out.println("==".repeat(30));
-
-        for (Student student : sG103) {
-            System.out.println(student);
-        }
 
 
         StudentSteam studentSteam;
