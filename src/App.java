@@ -1,6 +1,6 @@
-import Domen.Student;
-import Domen.StudentGroup;
-import Domen.StudentSteam;
+import Controllers.AccountController;
+import Domen.*;
+import Services.EmployeeService;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -112,7 +112,6 @@ public class App {
         StudentGroup sG104 = new StudentGroup(studentsFour);
 
 
-
         StudentSteam studentSteam;
         List<StudentGroup> steam = new ArrayList<>();
         steam.add(sG101);
@@ -132,9 +131,72 @@ public class App {
         Collections.sort(steam); //Сортировка потока студентов по численности группы и id группы за счет переопределения compareTo() <StudentGroup>
 
         System.out.println("==".repeat(30));
-
-
         System.out.println(studentSteam.toString());// Вывод потока в консоль
+
+        Teacher teacher1 = new Teacher("Nadezhda Anatolievna", 34, "Professor");
+        Employee mover1 = new Employee("Serega", 22, "service staff");
+        //AccountController controller = new AccountController();
+        /**
+         * Метод выводит сумму выплаченной зарплаты сотрудникам
+         */
+        AccountController.paySalary(teacher1, 230000);
+        AccountController.paySalary(mover1, 52000);
+
+        Student vasya = new Student("Vasya Hitryi", 19); //Вася не на потоке, потому что недостаточно хитрый
+        //salary.paySalary(vasya, 2000); Вася не может получить зарплату, так как студент
+
+
+        Teacher teacher2 = new Teacher("Nadezhda Victorovna", 66, "Professor");
+        Teacher teacher3 = new Teacher("Nadezhda Sergeevna", 74, "Professor");
+        Teacher teacher4 = new Teacher("Nadezhda Ul'rihovna", 32, "Professor");
+        Teacher teacher5 = new Teacher("Nadezhda Muhamedovna", 40, "Professor");
+        Teacher teacher6 = new Teacher("Nadezhda Ascoldovna", 61, "Professor");
+        List<Teacher> teachers = new ArrayList<>();
+        teachers.add(teacher1);
+        teachers.add(teacher2);
+        teachers.add(teacher3);
+        teachers.add(teacher4);
+        teachers.add(teacher5);
+        teachers.add(teacher6);
+        /**
+         * Метод выводит средний возраст учителей
+         */
+        System.out.println("Teachers");
+        AccountController.averageAge(teachers);
+        System.out.println("--".repeat(20));
+
+        Employee mover2 = new Employee("Serega", 18, "service staff");
+        Employee mover3 = new Employee("Serega", 65, "service staff");
+        Employee mover4 = new Employee("Serega", 23, "service staff");
+        Employee mover5 = new Employee("Serega", 44, "service staff");
+        Employee mover6 = new Employee("Serega", 32, "service staff");
+        List<Employee> movers = new ArrayList<>();
+        movers.add(mover1);
+        movers.add(mover2);
+        movers.add(mover3);
+        movers.add(mover4);
+        /**
+         * Метод создает коллектив рабочих с указанием департамента
+         */
+        EmployeeTeam serviceStaff = new EmployeeTeam(movers, "Service staff");
+        /**
+         * Метод добавляет по одному коллеге в сформированный коллектив
+         */
+        serviceStaff.addEmployee(mover5);
+        serviceStaff.addEmployee(mover6);
+
+        /**
+         * Метод выводит средний возраст рабочих
+         */
+        System.out.println("Service staff");
+        AccountController.averageAge(movers);
+        System.out.println("--".repeat(20));
+
+        /**
+         * This method return the average age of all students on a students steam.
+         */
+        System.out.println("All students");
+        AccountController.averageAge(studentSteam.getAll());
 
     }
 }

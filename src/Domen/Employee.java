@@ -3,7 +3,7 @@ package Domen;
 /**
  * @apiNote класс, определяющий служащего в университете
  */
-public class Employee extends Person {
+public class Employee extends WorkingPerson {
     private String major;
 
     public Employee(String name, int age, String major) {

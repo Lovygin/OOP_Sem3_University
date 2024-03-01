@@ -1,5 +1,6 @@
 package Domen;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -30,7 +31,7 @@ public class StudentSteam implements Iterable<StudentGroup>, Comparable<StudentG
     }
 
     public List<StudentGroup> getSteam() {
-        return steam;
+        return this.steam;
     }
 
     public void setSteam(List<StudentGroup> steam) {
@@ -49,6 +50,21 @@ public class StudentSteam implements Iterable<StudentGroup>, Comparable<StudentG
             }
         }
         return "the end";
+    }
+
+    /**
+     * Метод возвращает список всех студентов на потоке.
+     *
+     * @return
+     */
+    public List<Student> getAll() {
+        List<Student> allStudents = new ArrayList<>();
+        for (StudentGroup studentGroup : this.steam) {
+            for (Student student : studentGroup) {
+                allStudents.add(student);
+            }
+        }
+        return allStudents;
     }
 
 
