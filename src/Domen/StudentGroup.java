@@ -64,7 +64,5 @@ public class StudentGroup implements Iterable<Student>, Comparable<StudentGroup>
         if (this.getIdStudentGroup() > o.getIdStudentGroup()) return 1;
         if (this.getIdStudentGroup() < o.getIdStudentGroup()) return -1;
         return 0;
-
-
     }
 }

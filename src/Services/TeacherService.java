@@ -22,8 +22,7 @@ public class TeacherService extends PersonComparator<Teacher> implements iPerson
     }
 
     /**
-     * Метод принимает данные нового учителя и создает его. Добавляет в коллектив преподавателей.
-     *
+     * Метод принимает данные нового учителя и создает его. Добавляет в коллектив преподавателей
      * @param name
      * @param age
      */
